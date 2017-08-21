@@ -5,7 +5,7 @@ header-img: img/homeBG.jpg
 email: qiancheng0608@gmail.com
 description: "Hi I am Cheng, a full stack engineer."
 keyword: "full stack developer, mobile"
-url: "https://huangxuan.me"              # your host, for absolute URL
+url: "https://tom10ye.github.io/"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
