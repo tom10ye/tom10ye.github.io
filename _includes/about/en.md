@@ -1,12 +1,15 @@
 
 
-> This is a brilliant world.
+> This is a good world.
 
 
-Hi, I am Cheng Qian, a full stack software engineer. I am now a graduate student of [University of California, San diego](https://ucsd.edu/), majored in Electricl and Computer Engineering. I previously worked as QA Engineer at [Baidu](http://www.baidu.com/), Platform Test Team.
+Hi, I am Cheng Qian, a full stack software engineer. I am now a master candidate of [University of California, San diego](https://ucsd.edu/), majored in Electricl and Computer Engineering. I previously worked as QA Engineer at [Baidu](http://www.baidu.com/), Platform Test Team.
 
-I studied Communication Engineering and graduated from [Beijing University of Posts and Telecommunications](http://www.bupt.edu.cn/) and [Queen Mary, University of London]by 2016.
+I studied Telecommunication Engineering and graduated from the joint programm between [Beijing University of Posts and Telecommunications](http://www.bupt.edu.cn/) and [Queen Mary, University of London](http://www.qmul.ac.uk/)by 2016 with the first class honored bachelor degree.
 
+Proud to be a geek. I prefer to be called as an engineer more than a programmer. Languages are my swords and algorithms and design are my soul. From the former experience in one of Chinese biggest Internet companies, I also got a sharp sense towards product. But more importantly, what motivate me everyday is the huge enthusiasm towards code and engineering.
+
+“Make the world a better place because of you.” This is exactly the meaningful life for which I strive—purposeful, adventurous, and fulfilling as well.
 
 ##### Online Projects
 - [Ticket Fun][1]
