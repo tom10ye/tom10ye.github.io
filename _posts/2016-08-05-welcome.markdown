@@ -1,0 +1,14 @@
+---
+layout:     post
+title:      "Welcome to Cheng's Blog"
+subtitle:   "Comment me"
+date:       2016-08-05
+author:     "Tom"
+header-img: "img/post-bg-os-metro.jpg"
+tags:
+    - Welcome
+---
+
+
+# Welcome!
+Welcome to the launch of the new and improved website and my first blog post! My name is Cheng. I am so excited to share with you MORE of what my blog has to offer! The amount of ideas, how-to’s and inspiration whirling around in my head is ready to jump out. I wanted to start by telling you why I created this blog, what you will be seeing more of in my posts, and my overall experience of revamping my website.

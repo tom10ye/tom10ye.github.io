@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hi I am Cheng, a full stack engineer.">
+    <meta name="keywords"  content="full stack developer, mobile">
+    <meta name="theme-color" content="#000000">
+    
+    <title>How to be a top coder? - 我的博客 | My Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/2016/09/22/top-coder/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Cheng's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-os-metro.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-os-metro.jpg')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#top coder" title="top coder">top coder</a>
+                        
+                    </div>
+                    <h1>How to be a top coder?</h1>
+                    
+                    
+                    <h2 class="subheading">Some rules</h2>
+                    
+                    <span class="meta">Posted by Tom on September 22, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h1 id="remind-yourself-how-much-you-have-to-learn">Remind yourself how much you have to learn</h1>
+
+<p>The first step in learning something is recognizing that you don’t know it. That sounds obvious, but experienced programmers remember how long it took to overcome this personal assumption. Too many computer science students graduate with an arrogant “I know best” bravado, a robust certainty that they know everything and the intense need to prove it to every new work colleague. In other words: Your “I know what I’m doing!” attitude can get in the way of learning anything new.</p>
+
+<h1 id="stop-trying-to-prove-yourself-right">Stop trying to prove yourself right</h1>
+
+<p>To become great—not just good—you have to learn from experience. But be careful, experience can teach us to repeat poor behavior and to create bad habits. We’ve all encountered programmers with eight years of experience … the same year of experience, repeated eight times. To avoid that syndrome, look at everything you do and ask yourself, “How can I make this better?”</p>
+
+<p>Novice software developers (and too many experienced ones) look at their code to admire its wonderfulness. They write tests to prove that their code works instead of trying to make it fail. Truly great programmers actively look for where they’re wrong—because they know that eventually users will find the defects they missed.</p>
+
+<h1 id="the-code-works-isnt-where-you-stop-its-where-you-start">“The code works” isn’t where you stop; it’s where you start</h1>
+
+<p>Yes, your first step is always to write quality software that fulfills the spec. Average programmers quit at that point and move on to the next thing.</p>
+
+<p>But to stop once it’s “done” is like taking a snapshot and expecting it to be a work of art. Great programmers know that the first iteration is just the first iteration. It works— congratulations!—but you aren’t done. Now, make it better.</p>
+
+<p>Part of that process is defining what “better” means. Is it valuable to make it faster? Easier to document? More reusable? More reliable? The answer varies with each application, but the process doesn’t.</p>
+
+<h1 id="write-it-three-times">Write it three times</h1>
+
+<p>Good programmers write software that works. Great ones write software that works exceedingly well. That rarely happens on the first try. The best software usually is written three times:</p>
+
+<p>First, you write the software to prove to yourself (or a client) that the solution is possible. Others may not recognize that this is just a proof-of-concept, but you do.
+The second time, you make it work.
+The third time, you make it work right.
+This level of work may not be obvious when you look at the work of the best developers. Everything they do seems so brilliant, but what you don’t see is that even rock-star developers probably threw out the first and second versions before showing their software to anyone else. Throwing away code and starting over can be a powerful way to include “make it better” into your personal workflow.</p>
+
+<p>If nothing else, “Write it three times” teaches you how many ways there are to approach a problem. And it prevents you from getting stuck in a rut.</p>
+
+<h1 id="read-code-read-lots-of-code">Read code. Read lots of code</h1>
+<p>You probably expected me to lead with this advice, and indeed it’s both the most common and the most valuable suggestion for improving programming skills. What is less evident are the reasons that reading others’ code is so important.</p>
+
+<p>When you read others’ code, you see how someone else solved a programming problem. But don’t treat it as literature; think of it as a lesson and a challenge. To get better, ask yourself:</p>
+
+<p>How would I have written that block of code? What would you do differently, now that you’ve seen another solution?
+What did I learn? How can I apply that technique to code I wrote in the past? (“I’d never have thought to use recursive descent there…”).
+How would I improve this code? And if it’s an open source project where you are confident you have a better solution, do it!
+Write code in the author’s style. Practicing this helps you get into the head of the person who wrote the software, which can improve your empathy.
+Don’t just idly think about these steps. Write out your answers, whether in a personal journal, a blog, in a code review process, or a community forum with other developers. Just as explaining a problem to a friend can help you sort out the solution, writing down and sharing your analysis can help you understand why you react to another person’s code in a given way. It’s all part of that introspection I mentioned earlier, helping you to dispassionately judge your own strengths and weaknesses.</p>
+
+<p>Warning: It’s easy to read a lot of code without becoming a great programmer, just as a wannabe writer can read great literature without improving her own prose. Plenty of developers look at open source or other software to “find an answer” and, most likely, to copy and paste code that appears to solve a similar problem. Doing that can actually make you a worse programmer, since you are blindly accepting others’ wisdom without examining it. (Plus, it may be buggier than a summer picnic, but because you didn’t take the time to understand it, you’ll never recognize that you just imported a bug-factory.)</p>
+
+<h1 id="write-code-and-not-just-as-assignments">Write code, and not just as assignments</h1>
+
+<p>Working on personal programming projects has many advantages. For one, it gives you a way to learn tools and technologies that aren’t available at your current job, but which make you more marketable for the next one. Whether you contribute to an open source project or take on pro-bono work for a local community organization, you’ll gain tech skills and self-confidence. (Plus, your personal projects demonstrate to would-be employers that you’re a self-starter who never stops learning.)</p>
+
+<p>Another advantage of writing code for fun is that it forces you to figure things out on your own. You can’t leave the hard stuff to someone else, so it keeps you from asking for help too soon.</p>
+
+<p>Pro tip: Don’t choose only personal projects where you never fail. You need to fail! But you do probably don’t want to fail at work or when you have a deadline.</p>
+
+<h1 id="work-one-on-one-with-other-developers-any-way-you-can">Work one-on-one with other developers any way you can</h1>
+<p>collaborate concept: become a better coderIt helps to listen to other people. That might mean pair programming, or going to a hackathon, or joining a programming user group (such as the Vermont Coders Connection). When you contribute to an open source project, pay attention to the feedback you get from users and from other developers. What commonalities do you see in their criticism?</p>
+
+<p>You might be lucky enough to find a personal mentor whom you can trust to guide you in everything from coding techniques to career decisions. Don’t waste these opportunities.</p>
+
+<h1 id="learn-techniques-not-tools">Learn techniques, not tools</h1>
+<p>Programming languages, tools, and methodologies come and go. That’s why it pays to get as much experience as you can with as many languages and frameworks as possible. Focus on the programming fundamentals, because the basics never change; pay more attention to architecture than to programming. If you feel certain that there’s only one right way to do something, it’s probably time for a reality check. Dogma can hamper your ability to learn new things, and make you slow to adapt to change.</p>
+
+<p>I could keep going, but a key tenet of self-improvement is knowing when to stop.</p>
+
+
+                <hr style="visibility: hidden;">
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/08/05/welcome/" data-toggle="tooltip" data-placement="top" title="Welcome to Cheng's Blog">
+                        Previous<br>
+                        <span>Welcome to Cheng's Blog</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/10/13/collaborative-filtering/" data-toggle="tooltip" data-placement="top" title="Collaborative Filtering">
+                        Next<br>
+                        <span>Collaborative Filtering</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+                
+            </div>  
+
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "hux";
+    var disqus_identifier = "/2016/09/22/top-coder";
+    var disqus_url = "http://localhost:4000/2016/09/22/top-coder/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/tom10ye">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/qian-cheng-73-99">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/1144672192">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/tom10ye">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Cheng's Blog 2018
+                    <!-- <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script src="/js/snackbar.js "></script>
+<script src="/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('/js/jquery.tagcloud.js',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-49627206-1';
+    var _gaDomain = 'huangxuan.me';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+<!-- Side Catalog -->
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

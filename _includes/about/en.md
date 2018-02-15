@@ -11,10 +11,10 @@ Proud to be a geek. I prefer to be called as an engineer more than a programmer.
 
 “Make the world a better place because of you.” This is exactly the meaningful life for which I strive—purposeful, adventurous, and fulfilling as well.
 
-##### Online Projects
-- [Ticket Fun][1]
+##### More about me
+- [Resume][1]
 
-[1]: http://18.220.191.42/Titan/
+[1]: https://drive.google.com/file/d/0B1z7muntGmpORDlwdEw2MzlkZDg/view?usp=sharing
 
 <!-- - [Upgrading to Progressive Web Apps][9] · [JSConf China Shanghai 2017](http://2017.jsconf.cn/)
 - Building Progressive Web Apps · [CSDI Guangzhou 2017](http://www.csdisummit.com/)

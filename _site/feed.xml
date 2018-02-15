@@ -5,9 +5,162 @@
     <description>Hi I am Cheng, a full stack engineer.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 14 Feb 2018 16:23:48 -0800</pubDate>
-    <lastBuildDate>Wed, 14 Feb 2018 16:23:48 -0800</lastBuildDate>
+    <pubDate>Wed, 14 Feb 2018 19:24:03 -0800</pubDate>
+    <lastBuildDate>Wed, 14 Feb 2018 19:24:03 -0800</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
+    
+      <item>
+        <title>Collaborative Filtering</title>
+        <description>&lt;h1 id=&quot;what-is-that&quot;&gt;What is that?&lt;/h1&gt;
+
+&lt;p&gt;When designing a recommendation system, there are two major ways to go about it. We’ve already talked about content-based filtering, but what do you do when your content is simply too massive or diverse to manually apply attributes? For that, there’s collaborative filtering, a technique that’s widely used across social media, retail, and streaming services. In this article, we’ll explore how collaborative filtering works, where it’s used, and what skills you might need to get started.&lt;/p&gt;
+
+&lt;p&gt;For all the sophisticated math and machine learning techniques involved, the concept behind collaborative filtering is pretty straightforward: It’s based on the idea that people who share an interest in certain things will probably have similar tastes in other things as well. You experience collaborative filtering first-hand every time you go online and see “Customers Who Bought This Item Also Bought,” or “Users like you also liked…”&lt;/p&gt;
+
+&lt;h1 id=&quot;why-collaborative-filtering&quot;&gt;WHY COLLABORATIVE FILTERING?&lt;/h1&gt;
+
+&lt;p&gt;The main difference between collaborative filtering and content-based filtering is conceptual. Where content-based filtering is built around the attributes of a given object, collaborative filtering relies on the behavior of users. This approach has some distinct advantages over content-based filtering:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It benefits from large user bases. Simply put, the more people are using the service, the better your recommendations will become, without doing additional development work or relying on subject area expertise.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It’s flexible across different domains. Collaborative filtering approaches are well suited to highly diverse sets of items. Where content-based filters rely on metadata, collaborative filtering is based on real-life activity, allowing it to make connections between seemingly disparate items (like say, an outboard motor and a fishing rod) that nonetheless might be relevant to some set of users (in this case, people who like to fish).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It produces more serendipitous recommendations. When it comes to recommendations, accuracy isn’t always the highest priority. Content-based filtering approaches tend to show users items that are very similar to items they’ve already liked, which can lead to filter bubble problems. By contrast, most users have interests that span different subsets, which in theory can result in more diverse (and interesting) recommendations.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It can capture more nuance around items. Even a highly detailed content-based filtering system will only capture some of the features of a given item. By relying on actual human experience, collaborative filtering can sometimes recommend items that have a greater affinity with one another than a strict comparison of their attributes would suggest.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;two-methods-user-item-vs-item-item&quot;&gt;Two Methods: User-Item vs. Item-Item&lt;/h1&gt;
+
+&lt;p&gt;There are two approaches to collaborative filtering, one based on items, the other on users. Item-item collaborative filtering was originally developed by Amazon and draws inferences about the relationship between different items based on which items are purchased together. The more often two items (say, peanut butter and jelly) appear in the same shopping cart or user history, the “closer” they’re said to be to one another. So, when someone comes and adds peanut butter to their cart, the algorithm will suggest things that are close, like jelly or white bread, over things that aren’t, like motor oil.&lt;/p&gt;
+
+&lt;p&gt;User-item filtering takes a slightly different approach. Here, rather than calculating the distance between items, we calculate the distance between users based on their ratings (or likes, or whatever metric applies). When coming up with recommendations for a particular user, we then look at the users that are closest to them and then suggest items those users also liked but that our user hasn’t interacted with yet. So, if you’ve watched and liked a certain number of videos on Facebook, Facebook can look at other users who liked those same videos and recommend one that they also liked but which you might not have seen yet.&lt;/p&gt;
+
+&lt;p&gt;The important point here is that in both the examples above, the system has no idea why any of these items are related to one another, it only knows that they either show up in the same basket together, or that they’re liked by people with similar preferences. In some cases, though, this can be a feature rather than a shortcoming, especially in cases where the items to be filtered are extremely heterogeneous, as in online retailers or social networks. (Note: This can also lead to some unanticipated situations, as when Amazon’s algorithm began unintentionally suggesting drug paraphernalia to users who bought a particular scale.)&lt;/p&gt;
+
+&lt;h1 id=&quot;how-to-calculate-similarity&quot;&gt;HOW TO CALCULATE SIMILARITY?&lt;/h1&gt;
+&lt;p&gt;The above descriptions are meant to be general overviews of how collaborative filtering techniques are typically implemented. Behind each implementation there are a number of different techniques for measuring the similarity of two different items or users. Which one is right for a given recommender system depends on both the use case and the nature of the data involved.&lt;/p&gt;
+
+&lt;p&gt;When the data you’re working with is dense, a simple Euclidean distance measure can work. In reality, though, data (especially ratings) is often sparse. In these cases, cosine similarity is often used. There are other measures (Pearson correlation coefficient, k-nearest-neighbors, etc.). Fortunately, most of these functions are easily performed in Python (assuming you have the SciPy and scikit-learn libraries). Are you looking for a data scientist to build a recommendation engine? Create a job post on Upwork today.&lt;/p&gt;
+
+&lt;h1 id=&quot;challenges-of-collaborative-filtering&quot;&gt;CHALLENGES OF COLLABORATIVE FILTERING&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Complexity and expense. Collaborative filtering algorithms can run into scalability problems when the number of users and items gets too high (think in tens of millions of users and hundreds of thousands of items), especially when recommendations need to be generated in real-time online. Potential solution: This is where distributed clusters of machines running Hadoop or Spark come in handy. Depending on your project, it may also be possible to calculate relationships offline overnight by way of batch processing, which makes serving recommendations much quicker even if they’re no longer being updated in real-time.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Data sparsity. Many user signals are ambiguous. Just watching a video doesn’t tell YouTube whether you liked that particular video or not, and just eating at a restaurant doesn’t tell Yelp whether you liked it or not. That’s why ratings are so important in collaborative-filtering systems. But users don’t rate every item they interact with, and many users don’t rate anything at all. Potential solution: Depending on the nature of the data, there may be proxy measures that can be used. Another common technique is to assume that missing reviews are equivalent to average reviews, though this is a very strong assumption in most cases.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The “cold start” problem. As we’ve seen, collaborative-filtering can be a powerful way of recommending items based on user history, but what if there is no user history? This is called the “cold start” problem, and it can apply both to new items and to new users. Items with lots of history get recommended a lot, while those without never make it into the recommendation engine, resulting in a positive feedback loop. At the same time, new users have no history and thus the system doesn’t have any good recommendations. Potential solution: Onboarding processes can learn basic info to jump-start user preferences, importing social network contacts.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;relevant-skills-and-tech&quot;&gt;RELEVANT SKILLS AND TECH&lt;/h1&gt;
+&lt;p&gt;Building a recommender system with collaborative filtering is a major project that involves both data science and engineering challenges. Solving these challenges may require expertise with data processing and storage frameworks like Hadoop or Spark. When it comes to implementing algorithms, data-oriented programming languages like Python, Java, and Scala support libraries that make it easy to perform an array of machine learning and statistical analysis tasks.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 13 Oct 2017 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/2017/10/13/collaborative-filtering/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/10/13/collaborative-filtering/</guid>
+        
+        <category>Recommendation</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>How to be a top coder?</title>
+        <description>&lt;h1 id=&quot;remind-yourself-how-much-you-have-to-learn&quot;&gt;Remind yourself how much you have to learn&lt;/h1&gt;
+
+&lt;p&gt;The first step in learning something is recognizing that you don’t know it. That sounds obvious, but experienced programmers remember how long it took to overcome this personal assumption. Too many computer science students graduate with an arrogant “I know best” bravado, a robust certainty that they know everything and the intense need to prove it to every new work colleague. In other words: Your “I know what I’m doing!” attitude can get in the way of learning anything new.&lt;/p&gt;
+
+&lt;h1 id=&quot;stop-trying-to-prove-yourself-right&quot;&gt;Stop trying to prove yourself right&lt;/h1&gt;
+
+&lt;p&gt;To become great—not just good—you have to learn from experience. But be careful, experience can teach us to repeat poor behavior and to create bad habits. We’ve all encountered programmers with eight years of experience … the same year of experience, repeated eight times. To avoid that syndrome, look at everything you do and ask yourself, “How can I make this better?”&lt;/p&gt;
+
+&lt;p&gt;Novice software developers (and too many experienced ones) look at their code to admire its wonderfulness. They write tests to prove that their code works instead of trying to make it fail. Truly great programmers actively look for where they’re wrong—because they know that eventually users will find the defects they missed.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-code-works-isnt-where-you-stop-its-where-you-start&quot;&gt;“The code works” isn’t where you stop; it’s where you start&lt;/h1&gt;
+
+&lt;p&gt;Yes, your first step is always to write quality software that fulfills the spec. Average programmers quit at that point and move on to the next thing.&lt;/p&gt;
+
+&lt;p&gt;But to stop once it’s “done” is like taking a snapshot and expecting it to be a work of art. Great programmers know that the first iteration is just the first iteration. It works— congratulations!—but you aren’t done. Now, make it better.&lt;/p&gt;
+
+&lt;p&gt;Part of that process is defining what “better” means. Is it valuable to make it faster? Easier to document? More reusable? More reliable? The answer varies with each application, but the process doesn’t.&lt;/p&gt;
+
+&lt;h1 id=&quot;write-it-three-times&quot;&gt;Write it three times&lt;/h1&gt;
+
+&lt;p&gt;Good programmers write software that works. Great ones write software that works exceedingly well. That rarely happens on the first try. The best software usually is written three times:&lt;/p&gt;
+
+&lt;p&gt;First, you write the software to prove to yourself (or a client) that the solution is possible. Others may not recognize that this is just a proof-of-concept, but you do.
+The second time, you make it work.
+The third time, you make it work right.
+This level of work may not be obvious when you look at the work of the best developers. Everything they do seems so brilliant, but what you don’t see is that even rock-star developers probably threw out the first and second versions before showing their software to anyone else. Throwing away code and starting over can be a powerful way to include “make it better” into your personal workflow.&lt;/p&gt;
+
+&lt;p&gt;If nothing else, “Write it three times” teaches you how many ways there are to approach a problem. And it prevents you from getting stuck in a rut.&lt;/p&gt;
+
+&lt;h1 id=&quot;read-code-read-lots-of-code&quot;&gt;Read code. Read lots of code&lt;/h1&gt;
+&lt;p&gt;You probably expected me to lead with this advice, and indeed it’s both the most common and the most valuable suggestion for improving programming skills. What is less evident are the reasons that reading others’ code is so important.&lt;/p&gt;
+
+&lt;p&gt;When you read others’ code, you see how someone else solved a programming problem. But don’t treat it as literature; think of it as a lesson and a challenge. To get better, ask yourself:&lt;/p&gt;
+
+&lt;p&gt;How would I have written that block of code? What would you do differently, now that you’ve seen another solution?
+What did I learn? How can I apply that technique to code I wrote in the past? (“I’d never have thought to use recursive descent there…”).
+How would I improve this code? And if it’s an open source project where you are confident you have a better solution, do it!
+Write code in the author’s style. Practicing this helps you get into the head of the person who wrote the software, which can improve your empathy.
+Don’t just idly think about these steps. Write out your answers, whether in a personal journal, a blog, in a code review process, or a community forum with other developers. Just as explaining a problem to a friend can help you sort out the solution, writing down and sharing your analysis can help you understand why you react to another person’s code in a given way. It’s all part of that introspection I mentioned earlier, helping you to dispassionately judge your own strengths and weaknesses.&lt;/p&gt;
+
+&lt;p&gt;Warning: It’s easy to read a lot of code without becoming a great programmer, just as a wannabe writer can read great literature without improving her own prose. Plenty of developers look at open source or other software to “find an answer” and, most likely, to copy and paste code that appears to solve a similar problem. Doing that can actually make you a worse programmer, since you are blindly accepting others’ wisdom without examining it. (Plus, it may be buggier than a summer picnic, but because you didn’t take the time to understand it, you’ll never recognize that you just imported a bug-factory.)&lt;/p&gt;
+
+&lt;h1 id=&quot;write-code-and-not-just-as-assignments&quot;&gt;Write code, and not just as assignments&lt;/h1&gt;
+
+&lt;p&gt;Working on personal programming projects has many advantages. For one, it gives you a way to learn tools and technologies that aren’t available at your current job, but which make you more marketable for the next one. Whether you contribute to an open source project or take on pro-bono work for a local community organization, you’ll gain tech skills and self-confidence. (Plus, your personal projects demonstrate to would-be employers that you’re a self-starter who never stops learning.)&lt;/p&gt;
+
+&lt;p&gt;Another advantage of writing code for fun is that it forces you to figure things out on your own. You can’t leave the hard stuff to someone else, so it keeps you from asking for help too soon.&lt;/p&gt;
+
+&lt;p&gt;Pro tip: Don’t choose only personal projects where you never fail. You need to fail! But you do probably don’t want to fail at work or when you have a deadline.&lt;/p&gt;
+
+&lt;h1 id=&quot;work-one-on-one-with-other-developers-any-way-you-can&quot;&gt;Work one-on-one with other developers any way you can&lt;/h1&gt;
+&lt;p&gt;collaborate concept: become a better coderIt helps to listen to other people. That might mean pair programming, or going to a hackathon, or joining a programming user group (such as the Vermont Coders Connection). When you contribute to an open source project, pay attention to the feedback you get from users and from other developers. What commonalities do you see in their criticism?&lt;/p&gt;
+
+&lt;p&gt;You might be lucky enough to find a personal mentor whom you can trust to guide you in everything from coding techniques to career decisions. Don’t waste these opportunities.&lt;/p&gt;
+
+&lt;h1 id=&quot;learn-techniques-not-tools&quot;&gt;Learn techniques, not tools&lt;/h1&gt;
+&lt;p&gt;Programming languages, tools, and methodologies come and go. That’s why it pays to get as much experience as you can with as many languages and frameworks as possible. Focus on the programming fundamentals, because the basics never change; pay more attention to architecture than to programming. If you feel certain that there’s only one right way to do something, it’s probably time for a reality check. Dogma can hamper your ability to learn new things, and make you slow to adapt to change.&lt;/p&gt;
+
+&lt;p&gt;I could keep going, but a key tenet of self-improvement is knowing when to stop.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 22 Sep 2016 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/2016/09/22/top-coder/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/09/22/top-coder/</guid>
+        
+        <category>top coder</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Welcome to Cheng's Blog</title>
+        <description>&lt;h1 id=&quot;welcome&quot;&gt;Welcome!&lt;/h1&gt;
+&lt;p&gt;Welcome to the launch of the new and improved website and my first blog post! My name is Cheng. I am so excited to share with you MORE of what my blog has to offer! The amount of ideas, how-to’s and inspiration whirling around in my head is ready to jump out. I wanted to start by telling you why I created this blog, what you will be seeing more of in my posts, and my overall experience of revamping my website.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 05 Aug 2016 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/2016/08/05/welcome/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/08/05/welcome/</guid>
+        
+        <category>Welcome</category>
+        
+        
+      </item>
     
   </channel>
 </rss>

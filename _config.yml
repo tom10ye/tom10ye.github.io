@@ -1,6 +1,6 @@
 # Site settings
 title: Cheng's Blog
-SEOTitle: 我的博客 | My Blog
+SEOTitle: My Blog
 header-img: img/homeBG.jpg
 email: qiancheng0608@gmail.com
 description: "Hi I am Cheng, a full stack engineer."
@@ -15,7 +15,7 @@ RSS: false
 weibo_username:     1144672192
 zhihu_username:     qian-cheng-73-99
 github_username:    tom10ye
-twitter_username:   tom10ye
+twitter_username:   ChengQian68
 #facebook_username:  huxpro
 # linkedin_username:  firstname-lastname-idxxxx
 
